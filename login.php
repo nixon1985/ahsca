@@ -8,10 +8,23 @@ if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == true) {
     exit;
 }
 ?>
+<style>
+    #Progress_Status {
+        width: 100%;
+        background-color: #ddd;
+    }
 
+    #myprogressBar {
+        width: 2%;
+        height: 20px;
+        background-color: #4CAF50;
+    }
+</style>
 <html lang="en" class="bg-dark">
 <!-- Mirrored from flatfull.com/themes/note/signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Jan 2023 10:00:57 GMT -->
-<head> 
+
+
+<head>
 	<meta charset="utf-8" /> 
 	<title>Notebook | Web Application</title> 
 	<meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" /> 
@@ -23,10 +36,20 @@ if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == true) {
 <body class="">
 	<section id="content" class="m-t-lg wrapper-md animated fadeInUp">
 		<div class="container aside-xxl"> 
-			<a class="navbar-brand block" href="#">Friends-98 Multipurpose Association</a>
+			<!--<a class="navbar-brand block" href="#">Friends-98 Multipurpose Association</a>-->
+            <a href="#" class="navbar-brand block"><img src="images/logo.png"></a>
 			<section class="panel panel-default bg-white m-t-lg"> 
 				<header class="panel-heading text-center"> <strong>Sign in</strong> </header> 
-				<form id="login_form" action="#" class="panel-body wrapper-lg"> 
+				<form id="login_form" action="#" class="panel-body wrapper-lg">
+                    <div id="msgPanel"></div>
+
+
+                    <div id="Progress_Status" style="display: none;">
+                        <div id="myprogressBar"></div>
+                    </div>
+
+
+
 					<div class="form-group"> <label class="control-label">User ID</label> 
 						<input type="text" id="user_name" name="user_name" placeholder="User Id" class="form-control input-lg"> 
 					</div> 
@@ -104,10 +127,23 @@ $(document).ready(function(){
 					$('#btnSubmit').prop('disabled',false);	
 					var result = JSON.parse(data);
 					// alert(result.loginStatus);
-					if ($.trim(result.loginStatus) == 'yes') {						
-						window.location.assign("../ahsca/layout.php")
+					if ($.trim(result.loginStatus) == 'yes') {
+                        var ssMass = '<div class="alert alert-success">' +
+                        '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
+                        '<i class="fa fa-ok-sign"></i>'+
+                        'Login successfully.</div>';
+                        $('#msgPanel').html(ssMass);
+                        $("#Progress_Status").show();
+                        update();
+                        // window.location.assign("../ahsca/layout.php")
 					}else if($.trim(result.loginStatus) == 'no') {
-						alert('wrong user or password');
+                        //alert alert-danger
+                        var ssMass = '<div class="alert alert-danger">' +
+                            '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
+                            '<i class="fa fa-ok-sign"></i>Sorry!! you are not a valid user.</div>';
+                        $('#msgPanel').html(ssMass);
+
+						// alert('wrong user or password');
 					}
 				}
 			});
@@ -118,4 +154,20 @@ $(document).ready(function(){
 		
 	clearForm();
 });
+
+
+function update() {
+    var element = document.getElementById("myprogressBar");
+    var width = 1;
+    var identity = setInterval(scene, 10);
+    function scene() {
+        if (width >= 100) {
+            clearInterval(identity);
+            window.location.assign("../ahsca/layout.php");
+        } else {
+            width++;
+            element.style.width = width + '%';
+        }
+    }
+}
 </script>

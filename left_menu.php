@@ -1,7 +1,7 @@
 <aside class="bg-light lter b-r aside-md hidden-print hidden-xs" id="nav"> 
 		<section class="vbox"> 
-			<header class="header bg-primary lter text-center clearfix"> 
-				<div class="btn-group"> 
+			<header class="header bg-primary lter text-center clearfix" style="background-color: #9db1c5;">
+				<div class="btn-group">
 					<button type="button" class="btn btn-sm btn-dark btn-icon" title="New project"><i class="fa fa-plus"></i></button> 
 					<div class="btn-group hidden-nav-xs"> 
 						<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown"> Switch Project <span class="caret"></span> </button> 
