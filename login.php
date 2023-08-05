@@ -20,8 +20,8 @@ if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == true) {
 	<link rel="stylesheet" href="css/app.v1.css" type="text/css" /> 
 	<!--[if lt IE 9]> <script src="js/ie/html5shiv.js"></script> <script src="js/ie/respond.min.js"></script> <script src="js/ie/excanvas.js"></script> <![endif]-->
 </head>
-<body class=""> 
-	<section id="content" class="m-t-lg wrapper-md animated fadeInUp"> 
+<body class="">
+	<section id="content" class="m-t-lg wrapper-md animated fadeInUp">
 		<div class="container aside-xxl"> 
 			<a class="navbar-brand block" href="#">Friends-98 Multipurpose Association</a>
 			<section class="panel panel-default bg-white m-t-lg"> 
@@ -36,7 +36,7 @@ if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == true) {
 					</div> 
 					<div class="checkbox"> <label> <input type="checkbox"> Keep me logged in </label> </div> 
 					<a href="#" class="pull-right m-t-xs"><small>Forgot password?</small></a> 
-					<button type="submit" id="btnSubmit" class="btn btn-primary btn-block">Sign in</button> 
+					<button type="submit" id="btnSubmit" class="btn btn-primary btn-block">Sign in</button>
 					<!--<div class="line line-dashed"></div> 
 					<p class="text-muted text-center"><small>Do not have an account?</small></p>
 					<a href="signup.html" class="btn btn-default btn-block">Create an account</a>-->
@@ -93,7 +93,7 @@ $(document).ready(function(){
 			var formData = new FormData($(this)[0]);
 			formData.append("action","insertOrUpdate");	
 			$.ajax({
-				url: "../friends/controller/login_controller.php",
+				url: "../ahsca/controller/login_controller.php",
 				type: 'POST',
 				data: formData,
 				async: false,
@@ -105,7 +105,7 @@ $(document).ready(function(){
 					var result = JSON.parse(data);
 					// alert(result.loginStatus);
 					if ($.trim(result.loginStatus) == 'yes') {						
-						window.location.assign("../friends/layout.php")
+						window.location.assign("../ahsca/layout.php")
 					}else if($.trim(result.loginStatus) == 'no') {
 						alert('wrong user or password');
 					}

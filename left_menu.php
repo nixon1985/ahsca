@@ -20,7 +20,7 @@
 					<ul class="nav"> 
 						<li> 
 							<a href="index.html" > 
-								<i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> 
+								<i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i>
 								<span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> 
 								<span>Registration</span> 
 							</a> 
@@ -33,7 +33,7 @@
 						</li> 
 						<li > 
 							<a href="#layout" > 
-								<i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> 
+								<i class="fa fa-columns icon"> <b class="bg-danger"></b> </i>
 								<span class="pull-right"> 
 									<i class="fa fa-angle-down text"></i> 
 									<i class="fa fa-angle-up text-active"></i> 
@@ -50,7 +50,7 @@
 
 						<li> 
 							<a href="#layout" > 
-								<i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> 
+								<i class="fa fa-columns icon"> <b class="bg-danger"></b> </i>
 								<span class="pull-right"> 
 									<i class="fa fa-angle-down text"></i> 
 									<i class="fa fa-angle-up text-active"></i> 
@@ -66,7 +66,7 @@
 
 						<li> 
 							<a href="#layout" > 
-								<i class="fa fa-columns icon"> <b class="bg-warning"></b> </i> 
+								<i class="fa fa-columns icon"> <b class="bg-danger"></b> </i>
 								<span class="pull-right"> 
 									<i class="fa fa-angle-down text"></i> 
 									<i class="fa fa-angle-up text-active"></i> 
@@ -84,7 +84,7 @@
 						
 						<li> 
 							<a href="#uikit"> 
-								<i class="fa fa-flask icon"> <b class="bg-success"></b> </i> 
+								<i class="fa fa-flask icon"> <b class="bg-danger"></b> </i>
 								<span class="pull-right"> 
 									<i class="fa fa-angle-down text"></i> 
 									<i class="fa fa-angle-up text-active"></i> 
@@ -97,7 +97,7 @@
 							</ul> 
 						</li> 
 						<li > 
-							<a href="#pages" > <i class="fa fa-file-text icon"> <b class="bg-primary"></b> </i> 
+							<a href="#pages" > <i class="fa fa-file-text icon"> <b class="bg-danger"></b> </i>
 								<span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> 
 								<span>Pages</span> 
 							</a> 
@@ -114,8 +114,8 @@
 								<li > <a href="404.html" > <i class="fa fa-angle-right"></i> <span>404</span> </a> </li> 
 							</ul> 
 						</li> 
-						<li > <a href="mail.html" > <b class="badge bg-danger pull-right">3</b> <i class="fa fa-envelope-o icon"> <b class="bg-primary dker"></b> </i> <span>Message</span> </a> </li> 
-						<li > <a href="notebook.html" > <i class="fa fa-pencil icon"> <b class="bg-info"></b> </i> <span>Notes</span> </a> </li> 
+						<li > <a href="mail.html" > <b class="badge bg-danger pull-right">3</b> <i class="fa fa-envelope-o icon"> <b class="bg-danger dker"></b> </i> <span>Message</span> </a> </li>
+						<li > <a href="notebook.html" > <i class="fa fa-pencil icon"> <b class="bg-danger"></b> </i> <span>Notes</span> </a> </li>
 					</ul> 
 				</nav> <!-- / nav --> 
 			</div> 
