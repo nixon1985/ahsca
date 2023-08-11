@@ -37,10 +37,12 @@ if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == true) {
 	<section id="content" class="m-t-lg wrapper-md animated fadeInUp">
 		<div class="container aside-xxl"> 
 			<!--<a class="navbar-brand block" href="#">Friends-98 Multipurpose Association</a>-->
-            <a href="#" class="navbar-brand block"><img src="images/logo.png"></a>
+            <div align="center" style="width: 100%;">
+                <img style="height:50px;" src="images/logo.png">
+            </div>
 			<section class="panel panel-default bg-white m-t-lg"> 
 				<header class="panel-heading text-center"> <strong>Sign in</strong> </header> 
-				<form id="login_form" action="#" class="panel-body wrapper-lg">
+				<form data-validate="parsley"Za id="login_form" action="#" class="panel-body wrapper-lg">
                     <div id="msgPanel"></div>
 
 
@@ -51,7 +53,7 @@ if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == true) {
 
 
 					<div class="form-group"> <label class="control-label">User ID</label> 
-						<input type="text" id="user_name" name="user_name" placeholder="User Id" class="form-control input-lg"> 
+						<input type="text" id="user_name" name="user_name" placeholder="User Id" class="form-control input-lg" data-required="true" >
 					</div> 
 					<div class="form-group"> 
 						<label class="control-label">Password</label> 

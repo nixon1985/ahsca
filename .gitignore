@@ -11,5 +11,5 @@ target/
 *.ipr
 
 ### Database Connection ###
-/controller/DBcontroller.php
+controller/DBcontroller.php
 

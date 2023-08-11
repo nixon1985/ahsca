@@ -1,0 +1,74 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               10.4.21-MariaDB - mariadb.org binary distribution
+-- Server OS:                    Win64
+-- HeidiSQL Version:             11.3.0.6295
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+-- Dumping structure for table somiti.designation
+CREATE TABLE IF NOT EXISTS `designation` (
+  `designation_id` int(11) NOT NULL AUTO_INCREMENT,
+  `designation_name` varchar(50) DEFAULT NULL,
+  `top_order` int(11) NOT NULL,
+  PRIMARY KEY (`designation_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table somiti.designation: ~0 rows (approximately)
+/*!40000 ALTER TABLE `designation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `designation` ENABLE KEYS */;
+
+-- Dumping structure for table somiti.employment_rec
+CREATE TABLE IF NOT EXISTS `employment_rec` (
+  `rec_id` int(11) NOT NULL,
+  `emp_id` int(11) NOT NULL DEFAULT 0,
+  `offical_phone_no` varchar(20) DEFAULT NULL,
+  `offical_email` varchar(50) DEFAULT NULL,
+  `personal_phone_no` varchar(20) DEFAULT NULL,
+  `personal_email` varchar(50) DEFAULT NULL,
+  `present_address` varchar(100) DEFAULT NULL,
+  `rec_start_date` date DEFAULT NULL,
+  `rec_end_date` date DEFAULT NULL,
+  `member_type` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table somiti.employment_rec: ~0 rows (approximately)
+/*!40000 ALTER TABLE `employment_rec` DISABLE KEYS */;
+/*!40000 ALTER TABLE `employment_rec` ENABLE KEYS */;
+
+-- Dumping structure for table somiti.emp_info
+CREATE TABLE IF NOT EXISTS `emp_info` (
+  `emp_id` int(11) NOT NULL,
+  `emp_no` int(11) NOT NULL DEFAULT 0,
+  `emp_name` varchar(50) DEFAULT NULL,
+  `designation_id` int(11) NOT NULL,
+  `offical_phone_no` varchar(20) DEFAULT NULL,
+  `offical_email` varchar(50) DEFAULT NULL,
+  `personal_phone_no` varchar(20) DEFAULT NULL,
+  `personal_email` varchar(50) DEFAULT NULL,
+  `present_address` varchar(100) DEFAULT NULL,
+  `permanent_address` varchar(100) DEFAULT NULL,
+  `joining_date` date DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `photo_path` varchar(100) DEFAULT NULL,
+  `member_type` varchar(20) DEFAULT NULL,
+  `last_rec_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`emp_id`),
+  KEY `FK1_emp_info_designation_id` (`designation_id`),
+  CONSTRAINT `FK1_emp_info_designation_id` FOREIGN KEY (`designation_id`) REFERENCES `designation` (`designation_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table somiti.emp_info: ~0 rows (approximately)
+/*!40000 ALTER TABLE `emp_info` DISABLE KEYS */;
+/*!40000 ALTER TABLE `emp_info` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

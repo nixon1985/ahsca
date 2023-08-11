@@ -2,7 +2,7 @@
 <?php
 session_start(); // Start the session
 
-if(!isset($_SESSION['user_id']) && $_SESSION['user_id'] == true) {
+if(!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
 }
@@ -11,7 +11,7 @@ if(!isset($_SESSION['user_id']) && $_SESSION['user_id'] == true) {
 <!-- Mirrored from flatfull.com/themes/note/buttons.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Jan 2023 10:00:11 GMT -->
 <head> 
 	<meta charset="utf-8" /> 
-	<title>Notebook | Web Application</title> 
+	<title>AHS | Web Application</title>
 	<meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" /> 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
 	
@@ -30,7 +30,7 @@ if(!isset($_SESSION['user_id']) && $_SESSION['user_id'] == true) {
 	<script type="text/javascript">
 	
 	function openpage(filePath){
-		
+        $('#inner_page_content').html(" ");
 		var formData='erer';
 			$.ajax({
 				url: filePath,

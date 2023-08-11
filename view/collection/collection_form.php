@@ -138,7 +138,7 @@
 
 <script>
     $(document).ready(function() {
-        $('.select2').select2();
+        $('#member_list').select2();
         $( "#collection_date" ).datepicker();
     });
 

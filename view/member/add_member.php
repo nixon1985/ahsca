@@ -14,8 +14,17 @@
 <div class="row"> 
 	<div class="col-sm-6"> 
 		<section class="panel panel-default form-horizontal"> 
-			<header class="panel-heading font-bold">Member's Basic Information</header> 
-			<div class="panel-body"> 
+			<header class="panel-heading font-bold">Basic Information</header>
+			<div class="panel-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Member Type</label>
+                        <div class="col-sm-10">
+                            <label class="checkbox-inline"> <input type="radio" name="gender" id="memberType1" value="BM" checked> Board of Member </label>
+                            <label class="checkbox-inline"> <input type="radio" name="gender" id="memberType2" value="E"> Employee </label>
+                            <label class="checkbox-inline"> <input type="radio" name="gender" id="memberType3" value="S"> Student </label>
+                        </div>
+                    </div>
 				
 					<div class="form-group"> 
 						<label class="col-sm-2 control-label">Name</label> 
@@ -23,35 +32,15 @@
 							<input type="text" id="member_name" name="member_name" class="form-control" data-required="true">
 						</div> 
 					</div>
-					
-					<div class="form-group"> 
-						<label class="col-sm-2 control-label">Phone</label> 
-						<div class="col-sm-10"> 
-							<input type="text" id="phone_no" name="phone_no" class="form-control" data-required="true">
-						</div> 
-					</div>
-					
-					<div class="form-group"> 
-						<label class="col-sm-2 control-label">Email</label> 
-						<div class="col-sm-10"> 
-							<input type="email" id="email" name="email" class="form-control"> 
-						</div> 
-					</div>
-					
-					<div class="form-group"> 
-						<label class="col-sm-2 control-label">Present address</label> 
-						<div class="col-sm-10"> 
-							<input type="text" id="present_address" name="present_address" class="form-control"> 
-						</div> 
-					</div>
-					
-					<div class="form-group"> 
-						<label class="col-sm-2 control-label">Permanent address</label> 
-						<div class="col-sm-10"> 
-							<input type="text" id="permanent_address" name="permanent_address" class="form-control"> 
-						</div> 
-					</div> 			 
-					
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Designation</label>
+                        <div class="col-sm-10">
+                            <select id="member_list" class="select2" name="member_id" style="width: 100%">
+                            </select>
+                        </div>
+                    </div>
+
 					<div class="form-group"> 
 						<label class="col-sm-2 control-label">Gender</label> 
 						<div class="col-sm-10"> 
@@ -63,15 +52,22 @@
 					<div class="form-group"> 
 						<label class="col-sm-2 control-label">Joining Date</label> 
 						<div class="col-sm-10"> 
-							<input class="input-sm input-s datepicker-input form-control" size="16" type="text" value="" data-date-format="dd-mm-yyyy" >
+							<input class="input-sm input-s datepicker-input form-control datepicker" size="16" type="text" value="" data-date-format="dd-mm-yyyy" >
 						</div> 
 					</div>
  
 					<div class="form-group"> 
 						<label class="col-sm-2 control-label">Photo</label> 
 						<div class="col-sm-10"> 
-							<input type="file" class="filestyle" name="photo" data-icon="false" data-classButton="btn btn-default" data-classInput="form-control inline input-s">
-						</div> 
+							<input type="file" class="filestyle" accept="image/*" onchange="loadFile(event)" name="photo" data-icon="false" data-classButton="btn btn-default" data-classInput="form-control inline input-s">
+                            <p><img id="output" width="200"/></p>
+                            <script>
+                                var loadFile = function(event) {
+                                    var image = document.getElementById('output');
+                                    image.src=URL.createObjectURL(event.target.files[0]);
+                                };
+                            </script>
+                        </div>
 					</div> 
 				 
 			</div> 
@@ -79,49 +75,52 @@
 	</div> 
 	<div class="col-sm-6"> 
 		<section class="panel panel-default form-horizontal"> 
-			<header class="panel-heading font-bold">Nominee information</header> 
+			<header class="panel-heading font-bold">Contact information</header>
 				<div class="panel-body"> 
-					<div class="form-group"> 
-					<label class="col-sm-2 control-label">Name</label> 
-					<div class="col-sm-10"> 
-						<input type="text" class="form-control"> 
-					</div> 
-				</div>
-				
-				<div class="form-group"> 
-					<label class="col-sm-2 control-label">Phone</label> 
-					<div class="col-sm-10"> 
-						<input type="text" class="form-control">
-					</div> 
-				</div>
 
-				<div class="form-group"> 
-					<label class="col-sm-2 control-label">Email</label> 
-					<div class="col-sm-10"> 
-						<input type="email" class="form-control"> 
-					</div> 
-				</div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Personal Phone</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="phone_no" name="phone_no" class="form-control" data-required="true">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Personal Email</label>
+                        <div class="col-sm-8">
+                            <input type="email" id="email" name="email" class="form-control">
+                        </div>
+                    </div>
+
 				
-				<div class="form-group"> 
-					<label class="col-sm-2 control-label">Present address</label> 
-					<div class="col-sm-10"> 
-						<input type="text" class="form-control"> 
-					</div> 
-				</div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Official Phone</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="official_phone" name="official_phone" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Official Email</label>
+                        <div class="col-sm-8">
+                            <input type="email" id="official_email" name="official_email" class="form-control">
+                        </div>
+                    </div>
 				
-				<div class="form-group"> 
-					<label class="col-sm-2 control-label">Permanent address</label> 
-					<div class="col-sm-10"> 
-						<input type="text" class="form-control"> 
-					</div> 
-				</div> 			 
- 
-				<div class="form-group"> 
-					<label class="col-sm-2 control-label">Relation with Nominee</label> 
-					<div class="col-sm-10"> 
-						<input type="text" class="form-control"> 
-					</div> 
-				</div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Present address</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+				
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Permanent address</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
 
 			</div> 
 		</section> 
@@ -205,15 +204,9 @@
 
 $(document).ready(function(){
 	var userList	= "";
-	jQuery.ajaxSetup({
-		beforeSend: function() {
-			$('#wait').show();
-		},
-		complete: function(){
-			$('#wait').hide();
-		},
-		success: function() {}
-	}); 
+    $( ".datepicker" ).datepicker();
+    $('#member_list').select2();
+    loadDataGrid();
 
 
 	/*Clear Button Action Performed*/
@@ -275,79 +268,34 @@ $(document).ready(function(){
 			return false;	
 		}
 		
-		/*
-		var emp_working_day = $('input[name="pay_days[]"]').map(function () {    
-			if(this.value !== '') {
-				return this.value; 
-			}		  
-		}).get();
-		
-		if($.trim($('#search').val()).length>0 ){
-			alert('Please Remove Search ');
-			return false;
-		}
-		
-		if($("input[name='pay_days[]']").size() !== emp_working_day.length){
-			alert('Insert All Employees Working Days ???');
-			return false;
-		} 
-		else if ($.trim($('#month_no').val()) === "0") {
-			alert('Select Month ???');
-			$('#month_no').focus();
-			return false;	
-		} 
-		else if ($.trim($('#year_no').val()) === "0") {
-			alert('Select Year ???');
-			$('#year_no').focus();
-			return false;	
-		}
-		else {
-			//return false;
-			$('#btnSubmit').prop('disabled',true);			
-			event.preventDefault();
-			var formData = new FormData($(this)[0]);
-			var salary_year = $('#year_no').val();
-			var salary_month = $('#month_no').val();
-			formData.append("action","insertOrUpdate");	
-			$.ajax({
-				url: "../../controller/hrm/cash_salary_create_controller.php",
-				type: 'POST',
-				data: formData,
-				async: false,
-				cache: false,
-				contentType: false,
-				processData: false,
-				success: function(data) {						
-					$('#btnSubmit').prop('disabled',false);				
-					var result = JSON.parse(data);
-					if ($.trim(result.msg) === '1') {						
-						clearForm();
-						alert("Salary Sheet Created Successfully.");
-					}
-					else if ($.trim(result.msg) === '2') {						
-						clearForm();
-						alert("Salary Sheet Updated Successfully.");
-					}
-					else if ($.trim(result.msg) === '3') {						
-						alert("Salary Sheet has been generated already. You can not edit. check the month and year carefully ");
-					}
-					else if ($.trim(result.msg) === '4') {						
-						clearForm();
-						alert("Bonus Sheet Generated Successfully.");
-					}
-					else if($.trim(result.msg) === 'EE') {
-						alert(result.errorDesc);
-					}
-				}
-			});
-			return false;	
-		}
-			*/
-		
 	});
 		
 	clearForm();
 });
+
+
+
+function loadDataGrid(){
+    var postData = {actionType:'getAllMembers'};
+    var html = "<option value=''>-- Select Member --</option>";
+    $.ajax({
+        url: 'controller/infos.php',
+        type: 'POST',
+        data: JSON.stringify(postData),
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+            // $('#member_grid').html(data);
+            var result = JSON.parse(data);
+            $.each(result, function(i,data){
+                html +="<option value='"+data.member_id+"'>"+data.member_name+"</option>";
+            });
+        }
+    });
+    $('#member_list').html(html);
+}
 
 
 </script>
