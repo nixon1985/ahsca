@@ -52,7 +52,7 @@
 					<div class="form-group"> 
 						<label class="col-sm-2 control-label">Joining Date</label> 
 						<div class="col-sm-10"> 
-							<input class="input-sm input-s datepicker-input form-control datepicker" size="16" type="text" value="" data-date-format="dd-mm-yyyy" >
+							<input id="joining_date" name="joining_date" class="input-sm input-s datepicker-input form-control" size="16" type="text" value="" data-date-format="dd-mm-yyyy" >
 						</div> 
 					</div>
  
@@ -200,15 +200,14 @@
 </div>
 
 
-<script type="text/javascript">
-
+<script>
 $(document).ready(function(){
 	var userList	= "";
-    $( ".datepicker" ).datepicker();
     $('#member_list').select2();
-    loadDataGrid();
+    $("#joining_date").datepicker();
+});
 
-
+loadDataGrid();
 	/*Clear Button Action Performed*/
 	
 	$('#btnClear').click(function(){
@@ -270,8 +269,8 @@ $(document).ready(function(){
 		
 	});
 		
-	clearForm();
-});
+	// clearForm();
+
 
 
 
@@ -296,7 +295,6 @@ function loadDataGrid(){
     });
     $('#member_list').html(html);
 }
-
 
 </script>
 

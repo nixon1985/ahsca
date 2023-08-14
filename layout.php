@@ -29,7 +29,7 @@ if(!isset($_SESSION['user_id'])) {
 	<!--[if lt IE 9]> <script src="js/ie/html5shiv.js"></script> <script src="js/ie/respond.min.js"></script> <script src="js/ie/excanvas.js"></script> <![endif]-->
 	<script type="text/javascript">
 	
-	function openpage(filePath){
+	function openpage1(filePath){
         $('#inner_page_content').html(" ");
 		var formData='erer';
 			$.ajax({
@@ -42,17 +42,14 @@ if(!isset($_SESSION['user_id'])) {
 				processData: false,
 				success: function(data) { 
 					$('#inner_page_content').html(data);
-					/*
-					if($.trim(data)==='1'){									
-						alert('Saved Successfully.');
-					}else{
-						alert('Error !!!');
-					}
-					*/					
 				}
 			});
 			
 	}
+    function openpage(filePath){
+        $("#inner_page_content").load(filePath);
+    }
+
 	</script>
 </head>
 <body class=""> 
