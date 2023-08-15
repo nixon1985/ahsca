@@ -7,31 +7,39 @@ $newMemberNo = $obj->getNewMemberNo();
 try {
         $photoPath = photo_uplaod($newMemberNo);
         $conn->beginTransaction();
-		$sql_query = "INSERT INTO member_info (member_no,member_name,phone_no,email,gender,present_address,permanent_address,monthly_payable,opening_balance,photo_path) 
-                                       VALUES (:member_no,:member_name,:phone_no,:email,:gender,:present_address,:permanent_address,:monthly_payable,:opening_balance,:photo_path)";
+		$sql_query = "INSERT INTO emp_info (emp_no,emp_name,designation_id,personal_phone,personal_email,official_phone,official_email,joining_date,member_type,gender,present_address,permanent_address,photo_path) 
+                                    VALUES (:emp_no,:emp_name,:designation_id,:personal_phone,:personal_email,:official_phone,:official_email,:joining_date,:member_type,:gender,:present_address,:permanent_address,:photo_path)";
 		$stmt = $conn->prepare($sql_query);
 
-        $stmt->bindParam(':member_no', $newMemberNo);
-		$stmt->bindParam(':member_name', $member_name);
-		$stmt->bindParam(':phone_no', $phone_no);
-		$stmt->bindParam(':email', $email);
+        $stmt->bindParam(':emp_no', $newMemberNo);
+		$stmt->bindParam(':emp_name', $emp_name);
+        $stmt->bindParam(':designation_id', $designation);
+		$stmt->bindParam(':personal_phone', $personal_phone);
+		$stmt->bindParam(':personal_email', $personal_email);
+        $stmt->bindParam(':official_phone', $official_phone);
+        $stmt->bindParam(':official_email', $official_email);
+        $stmt->bindParam(':joining_date', $joining_date);
+        $stmt->bindParam(':member_type', $member_type);
         $stmt->bindParam(':gender', $gender);
 		$stmt->bindParam(':present_address', $present_address);
 		$stmt->bindParam(':permanent_address', $permanent_address,PDO::PARAM_NULL);
-        $stmt->bindParam(':monthly_payable', $monthly_payable);
-        $stmt->bindParam(':opening_balance', $opening_balance);
         $stmt->bindParam(':photo_path', $photoPath);
 		// $stmt->bindParam(':description', $description,PDO::PARAM_NULL);
 		// $stmt->bindParam(':created_by', $created_by);
 		
-		$member_name 	      = trim($_POST['member_name']);
-		$phone_no 	  		  = trim($_POST['phone_no']);
-		$email 	      		  = trim($_POST['email']);
+		$emp_name 	          = trim($_POST['emp_name']);
+        $designation 	      = trim($_POST['designation']);
+		$personal_phone 	  = trim($_POST['personal_phone']);
+        $personal_email 	  = trim($_POST['personal_email']);
+        $official_phone 	  = trim($_POST['official_phone']);
+        $official_email 	  = trim($_POST['official_email']);
         $gender 	      	  = trim($_POST['gender']);
+        $member_type	      = trim($_POST['member_type']);
+        $joining_date	      = trim($_POST['joining_date']);
 		$present_address 	  = trim($_POST['present_address']);
 		$permanent_address 	  = trim($_POST['permanent_address']);
-		$monthly_payable 	  = (!empty($_POST['monthly_payable'])) ? trim($_POST['monthly_payable']):0;
-		$opening_balance 	  = (!empty($_POST['opening_balance'])) ? trim($_POST['opening_balance']):0;
+		//$monthly_payable 	  = (!empty($_POST['monthly_payable'])) ? trim($_POST['monthly_payable']):0;
+		//$opening_balance 	  = (!empty($_POST['opening_balance'])) ? trim($_POST['opening_balance']):0;
 		// $created_by 	      = $loginUser;
 		
 		$stmt->execute();
@@ -90,7 +98,7 @@ try {
             $returnPath = 0;
         // if everything is ok, try to upload file
         } else {
-            $newname = $_SERVER['DOCUMENT_ROOT'].'/friends/uploads/'.$newMemberNo.'.'.$imageFileType;
+            $newname = $_SERVER['DOCUMENT_ROOT'].'/ahsca/uploads/'.$newMemberNo.'.'.$imageFileType;
             if (move_uploaded_file($_FILES["photo"]["tmp_name"], $newname)) {
                 //echo "The file ". htmlspecialchars( basename( $_FILES["photo"]["name"])). " has been uploaded.";
                 $returnPath = 'uploads/'.$newMemberNo.'.'.$imageFileType;

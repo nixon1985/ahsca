@@ -13,7 +13,7 @@
 			
 			$servername = "localhost";
 			$username = "root";
-			$password = "123456";
+			$password = "";
 			$dbname = "somiti";
 
 			try {
@@ -51,12 +51,12 @@
             $newMemberId = "";
 
             /*Get Max Voucher ID*/
-            $sql_query = "SELECT IFNULL(max(member_no)+1,1001) member_no from member_info";
+            $sql_query = "SELECT IFNULL(max(emp_no)+1,1001) emp_no from emp_info";
             $stmt = $this->dbCon->prepare($sql_query);
             $stmt->execute();
             $newMemberNo = $stmt->fetch(PDO::FETCH_ASSOC);
-            if(isset($newMemberNo['member_no'])){
-                $newMemberId   = $newMemberNo['member_no'];
+            if(isset($newMemberNo['emp_no'])){
+                $newMemberId   = $newMemberNo['emp_no'];
             }else{
                 $newMemberId = "1001";
             }

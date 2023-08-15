@@ -61,6 +61,13 @@ switch ($actionType){
         $opInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
         break;
 
+    case 'getAllDesignation':
+        $sql = "SELECT p.designation_id, p.designation_name FROM designation p";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $opInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        break;
+
     default:
         $sql = "SELECT * FROM member_info";
         $stmt = $conn->prepare($sql);
@@ -68,7 +75,7 @@ switch ($actionType){
         $opInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
         break;
 }
-
 echo json_encode($opInfo);
+// echo json_encode($opInfo);
 
 ?>

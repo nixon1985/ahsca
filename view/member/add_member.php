@@ -20,23 +20,23 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Member Type</label>
                         <div class="col-sm-10">
-                            <label class="checkbox-inline"> <input type="radio" name="gender" id="memberType1" value="BM" checked> Board of Member </label>
-                            <label class="checkbox-inline"> <input type="radio" name="gender" id="memberType2" value="E"> Employee </label>
-                            <label class="checkbox-inline"> <input type="radio" name="gender" id="memberType3" value="S"> Student </label>
+                            <label class="checkbox-inline"> <input type="radio" name="member_type" value="BM" checked> Board of Member </label>
+                            <label class="checkbox-inline"> <input type="radio" name="member_type" value="E"> Employee </label>
+                            <label class="checkbox-inline"> <input type="radio" name="member_type" value="S"> Student </label>
                         </div>
                     </div>
 				
 					<div class="form-group"> 
 						<label class="col-sm-2 control-label">Name</label> 
 						<div class="col-sm-10">
-							<input type="text" id="member_name" name="member_name" class="form-control" data-required="true">
-						</div> 
+							<input type="text" id="emp_name" name="emp_name" class="form-control" data-required="true">
+						</div>
 					</div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Designation</label>
                         <div class="col-sm-10">
-                            <select id="member_list" class="select2" name="member_id" style="width: 100%">
+                            <select id="designation" class="select2" name="designation" style="width: 100%">
                             </select>
                         </div>
                     </div>
@@ -82,14 +82,14 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Personal Phone</label>
                         <div class="col-sm-8">
-                            <input type="text" id="phone_no" name="phone_no" class="form-control" data-required="true">
+                            <input type="text" id="personal_phone" name="personal_phone" class="form-control" data-required="true">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Personal Email</label>
                         <div class="col-sm-8">
-                            <input type="email" id="email" name="email" class="form-control">
+                            <input type="email" id="personal_email" name="personal_email" class="form-control">
                         </div>
                     </div>
 
@@ -111,14 +111,14 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Present address</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control">
+                            <input type="text" id="present_address" name="present_address" class="form-control">
                         </div>
                     </div>
 				
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Permanent address</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control">
+                            <input type="text" id="permanent_address" name="permanent_address" class="form-control">
                         </div>
                     </div>
 
@@ -126,8 +126,6 @@
 		</section> 
 	</div> 
 </div>
-
-
 
 
 <section class="panel panel-default form-horizontal"> 
@@ -149,8 +147,7 @@
 		</div>
 		<div class="line line-lg pull-in"></div> 
 		<div class="form-group"> 
-			<div class="col-sm-10" align="center"> 
-				<!--<a href="#modal-form" class="btn btn-success" data-toggle="modal">Form in a modal</a>-->
+			<div class="col-sm-10" align="center">
 				<button type="submit" id="btnClear" class="btn btn-default">Cancel</button> 
 				<button type="submit" class="btn btn-primary">Submit</button>  
 			</div> 
@@ -161,55 +158,17 @@
 </form>
 
 
-<!-- Modal window -->
-<div class="modal fade" id="modal-form"> 
-	<div class="modal-dialog"> 
-		<div class="modal-content"> 
-			<div class="modal-body"> 
-				<div class="row"> 
-					<div class="col-sm-6 b-r"> 
-						<h3 class="m-t-none m-b">Sign in</h3> 
-						<p>Sign in to meet your friends.</p> 
-						<form role="form"> 
-							<div class="form-group"> 
-								<label>Email</label> 
-								<input type="email" class="form-control" placeholder="Enter email"> 
-							</div> 
-							<div class="form-group"> 
-								<label>Password</label> 
-								<input type="password" class="form-control" placeholder="Password"> 
-							</div> 
-							<div class="checkbox m-t-lg"> 
-								<button type="submit" class="btn btn-sm btn-success pull-right text-uc m-t-n-xs"><strong>Log in</strong></button> 
-								<label> <input type="checkbox"> Remember me </label> 
-							</div>
-						</form>
-					</div> 
-					<div class="col-sm-6"> 
-						<h4>Not a member?</h4> 
-						<p>You can create an account <a href="#" class="text-info">here</a></p> 
-						<p>OR</p> 
-						<a href="#" class="btn btn-facebook btn-block m-b-sm"><i class="fa fa-facebook pull-left"></i>Sign in with Facebook</a> 
-						<a href="#" class="btn btn-twitter btn-block m-b-sm"><i class="fa fa-twitter pull-left"></i>Sign in with Twitter</a> 
-						<a href="#" class="btn btn-gplus btn-block"><i class="fa fa-google-plus pull-left"></i>Sign in with Google+</a> 
-					</div> 
-				</div> 
-			</div> 
-		</div><!-- /.modal-content --> 
-	</div><!-- /.modal-dialog --> 
-</div>
-
 
 <script>
 $(document).ready(function(){
 	var userList	= "";
-    $('#member_list').select2();
+    $('#designation').select2();
     $("#joining_date").datepicker();
+    loadDesignation();
 });
 
-loadDataGrid();
+
 	/*Clear Button Action Performed*/
-	
 	$('#btnClear').click(function(){
 		//clearForm();	
 		alert("clear form");
@@ -221,28 +180,21 @@ loadDataGrid();
 	/* Submit Button Action Performed */
 	$("form#submit_form").submit(function(event) {
         var gender = $('input[name="gender"]:checked').val();
+        var member_type = $('input[name="member_type"]:checked').val();
 
-        if($.trim($('#member_name').val()).length==0 ){
+        if($.trim($('#emp_name').val()).length==0 ){
 			alert('Please Enter Member Name');
 			return false;
-		}else if($.trim($('#phone_no').val()).length==0 ){
-            alert('Please Enter Phone Number');
-            return false;
-        }else if($.trim($('#monthly_payable').val()).length==0 ) {
-            alert('Please Enter monthly payable amount');
-            return false;
-        }else if($.trim($('#opening_balance').val()).length==0 ){
-                alert('Please Enter current balance');
-                return false;
         } else {
 
 			$('#btnSubmit').prop('disabled',true);			
 			event.preventDefault();
 			var formData = new FormData($(this)[0]);
 			formData.append("action","insertOrUpdate");
+            formData.append("member_type",member_type);
             formData.append("gender",gender);
             $.ajax({
-				url: "../friends/controller/add_member_controller.php",
+				url: "controller/add_member_controller.php",
 				type: 'POST',
 				data: formData,
 				async: false,
@@ -250,8 +202,7 @@ loadDataGrid();
 				contentType: false,
 				processData: false,
 				success: function(data) {						
-					//$('#btnSubmit').prop('disabled',false);	
-					
+					//$('#btnSubmit').prop('disabled',false);
 					var result = JSON.parse(data);
 
 					if (result.success) {
@@ -260,7 +211,7 @@ loadDataGrid();
 					}
 					else if (result.error) {
 						//clearForm();
-						alert("Salary Sheet Updated Successfully.");
+						alert("Error !!.");
 					}
 				}
 			});
@@ -274,26 +225,17 @@ loadDataGrid();
 
 
 
-function loadDataGrid(){
-    var postData = {actionType:'getAllMembers'};
-    var html = "<option value=''>-- Select Member --</option>";
-    $.ajax({
-        url: 'controller/infos.php',
-        type: 'POST',
-        data: JSON.stringify(postData),
-        async: false,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function(data) {
-            // $('#member_grid').html(data);
-            var result = JSON.parse(data);
-            $.each(result, function(i,data){
-                html +="<option value='"+data.member_id+"'>"+data.member_name+"</option>";
-            });
-        }
+function loadDesignation(){
+
+    $.post("controller/infos.php", {actionType: "getAllDesignation"}, function(data, status){
+        var result = JSON.parse(data);
+        var html='';
+        $.each(result, function(i,data){
+            //alert(data.designation_id);
+            html +="<option value='"+data.designation_id+"'>"+data.designation_name+"</option>";
+        });
+        $('#designation').html(html);
     });
-    $('#member_list').html(html);
 }
 
 </script>

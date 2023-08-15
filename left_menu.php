@@ -25,9 +25,12 @@
 								<span>Registration</span> 
 							</a> 
 							<ul class="nav lt">
-                                <?php if($_SESSION['user_level']=='ADMIN'){?>
+                                <?php //if($_SESSION['user_level']=='ADMIN'){?>
 								<li> <a href="#" onclick='openpage("view/member/add_member.php");' > <i class="fa fa-angle-right"></i> <span>Add Member</span> </a> </li>
-                                <?php } ?>
+                                <?php //} ?>
+                                <li> <a href="#" onclick='openpage("view/member/member_info.php");'> <i class="fa fa-angle-right"></i> <span>Board of Members</span> </a> </li>
+                                <li> <a href="#" onclick='openpage("view/member/member_list.php");'> <i class="fa fa-angle-right"></i> <span>Employees</span> </a> </li>
+                                <li> <a href="#" onclick='openpage("view/member/member_list.php");'> <i class="fa fa-angle-right"></i> <span>Students</span> </a> </li>
 								<li> <a href="#" onclick='openpage("view/member/member_list.php");'> <i class="fa fa-angle-right"></i> <span>Member List</span> </a> </li> 
 							</ul> 
 						</li> 
