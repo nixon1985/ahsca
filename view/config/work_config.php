@@ -46,45 +46,36 @@
                                 <thead>
                                 <tr>
                                     <th width="20"><input type="checkbox"></th>
-                                    <th width="20"></th>
                                     <th class="th-sortable" data-toggle="class">Project <span class="th-sort"> <i class="fa fa-sort-down text"></i> <i class="fa fa-sort-up text-active"></i> <i class="fa fa-sort"></i> </span> </th>
                                     <th>Task</th>
-                                    <th>Date</th>
-                                    <th width="30"></th>
+                                    <th width="20"></th>
+                                    <th width="20"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td><input type="checkbox" name="post[]" value="2"></td>
-                                    <td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a></td>
                                     <td>Idrawfast</td>
-                                    <td>4c</td>
-                                    <td>Jul 25, 2013</td>
-                                    <td> <a href="javascript:editSubWork();"><i class="fa fa-pencil"></i></a> </td>
+                                    <td><a href="javascript:editSubWork();"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a href="javascript:editSubWork();"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" name="post[]" value="3"></td>
-                                    <td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a></td>
                                     <td>Formasa</td>
-                                    <td>8c</td>
-                                    <td>Jul 22, 2013</td>
-                                    <td> <a href="#" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a> </td>
+                                    <td><a href="javascript:editSubWork();"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a href="javascript:editSubWork();"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" name="post[]" value="4"></td>
-                                    <td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a></td>
                                     <td>Avatar system</td>
-                                    <td>15c</td>
-                                    <td>Jul 15, 2013</td>
-                                    <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a> </td>
+                                    <td><a href="javascript:editSubWork();"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a href="javascript:editSubWork();"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" name="post[]" value="4"></td>
-                                    <td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a></td>
                                     <td>Throwdown</td>
-                                    <td>4c</td>
-                                    <td>Jul 11, 2013</td>
-                                    <td> <a href="#" class="active" data-toggle="class"><i class="fa fa-trash-o"></i></a> <a href="javascript:editSubWork();"><i class="fa fa-pencil"></i></a> </td>
+                                    <td><a href="javascript:editSubWork();"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a href="javascript:editSubWork();"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -146,23 +137,15 @@
                                     <input type="text" id="opening_balance" name="opening_balance" class="form-control">
                                 </div>
                             </div>
-                            <div class="line line-lg pull-in"></div>
-                            <div class="form-group">
-                                <div class="col-sm-10" align="center">
-                                    <!--<a href="#modal-form" class="btn btn-success" data-toggle="modal">Form in a modal</a>-->
-                                    <button type="submit" id="btnClear" class="btn btn-default">Cancel</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </div>
-
                         </div>
                     </section>
 
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="work-form">Close</button>
-                <button type="button" class="btn btn-info" data-loading-text="Updating...">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <!--<button type="button" class="btn btn-info" data-loading-text="Updating...">Save changes</button>-->
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
