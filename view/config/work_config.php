@@ -6,7 +6,7 @@
                         <button type="button" class="btn btn-sm btn-default" title="Refresh"><i class="fa fa-refresh"></i></button>
                         <button type="button" class="btn btn-sm btn-default" title="Remove"><i class="fa fa-trash-o"></i></button>
                     </div>
-                    <a href="javascript:editSubWork();" class="btn btn-sm btn-default"><i class="fa fa-plus"></i> Create</a>
+                    <a href="javascript:editSubWork('mw');" class="btn btn-sm btn-default"><i class="fa fa-plus"></i> Create</a>
             </div>
             <ul class="nav">
                 <li class="b-b b-light"><a href="#"><i class="fa fa-chevron-right pull-right m-t-xs text-xs icon-muted"></i>Accountancy</a></li>
@@ -26,7 +26,7 @@
                                 <button type="button" class="btn btn-sm btn-default" title="Refresh"><i class="fa fa-refresh"></i></button>
                                 <button type="button" class="btn btn-sm btn-default" title="Remove"><i class="fa fa-trash-o"></i></button>
                             </div>
-                            <a href="modal.html" data-toggle="ajaxModal" class="btn btn-sm btn-default"><i class="fa fa-plus"></i> Create</a>
+                            <a href="javascript:editSubWork('sw');" class="btn btn-sm btn-default"><i class="fa fa-plus"></i> Create</a>
                         </div>
                         <div class="col-sm-4 m-b-xs">
                             <div class="input-group">
@@ -46,8 +46,7 @@
                                 <thead>
                                 <tr>
                                     <th width="20"><input type="checkbox"></th>
-                                    <th class="th-sortable" data-toggle="class">Project <span class="th-sort"> <i class="fa fa-sort-down text"></i> <i class="fa fa-sort-up text-active"></i> <i class="fa fa-sort"></i> </span> </th>
-                                    <th>Task</th>
+                                    <th class="th-sortable" data-toggle="class">Sub Work <span class="th-sort"> <i class="fa fa-sort-down text"></i> <i class="fa fa-sort-up text-active"></i> <i class="fa fa-sort"></i> </span> </th>
                                     <th width="20"></th>
                                     <th width="20"></th>
                                 </tr>
@@ -112,29 +111,20 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Idrawfast 02/2013</h4>
+                <h4 class="modal-title">Add Work</h4>
             </div>
             <div class="modal-body">
 
 
                 <form id="submit_form" class="bs-example" role="search">
-                    <div class="m-b-md"><h3 class="m-b-none">Add Work Name</h3> </div>
-
                     <section class="panel panel-default form-horizontal">
-                        <header class="panel-heading font-bold"> Payment Information </header>
+                        <header class="panel-heading font-bold" id="workType"> Work Information </header>
                         <div class="panel-body">
 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Monthly Payable Amount</label>
-                                <div class="col-sm-10">
+                                <label class="col-sm-3 control-label">Work Name</label>
+                                <div class="col-sm-9">
                                     <input type="text" id="monthly_payable" name="monthly_payable" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">Current Balance</label>
-                                <div class="col-sm-10">
-                                    <input type="text" id="opening_balance" name="opening_balance" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -219,7 +209,12 @@
             $('#work-form').modal('show');
         }
 
-        function editSubWork(){
+        function editSubWork(workType){
+            if(workType=='mw'){
+                $('#workType').html('Main Work Name');
+            }else if(workType=='sw'){
+                $('#workType').html('Sub-Work Name');
+            }
             $('#work-form').modal('show');
         }
     </script>
