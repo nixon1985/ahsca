@@ -8,7 +8,7 @@
                     </div>
                     <a href="javascript:editSubWork('mw');" class="btn btn-sm btn-default"><i class="fa fa-plus"></i> Create</a>
             </div>
-            <ul class="nav">
+            <ul id="workList" class="nav">
                 <li class="b-b b-light"><a href="#"><i class="fa fa-chevron-right pull-right m-t-xs text-xs icon-muted"></i>Accountancy</a></li>
                 <li class="b-b b-light"><a href="#"><i class="fa fa-chevron-right pull-right m-t-xs text-xs icon-muted"></i>Auditing</a></li>
                 <li class="b-b b-light"><a href="#"><i class="fa fa-chevron-right pull-right m-t-xs text-xs icon-muted"></i>Taxation</a></li>
@@ -26,7 +26,7 @@
                                 <button type="button" class="btn btn-sm btn-default" title="Refresh"><i class="fa fa-refresh"></i></button>
                                 <button type="button" class="btn btn-sm btn-default" title="Remove"><i class="fa fa-trash-o"></i></button>
                             </div>
-                            <a href="javascript:editSubWork('sw');" class="btn btn-sm btn-default"><i class="fa fa-plus"></i> Create</a>
+                            <a href="javascript:addNewSubWork();" class="btn btn-sm btn-default"><i class="fa fa-plus"></i> Create</a>
                         </div>
                         <div class="col-sm-4 m-b-xs">
                             <div class="input-group">
@@ -106,25 +106,33 @@
 
 
 
-<div class="modal fade" id="work-form">
+<div class="modal fade" id="sub-work-form">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Add Work</h4>
             </div>
+            <form id="sub_work_name" class="bs-example" role="search">
             <div class="modal-body">
-
-
-                <form id="submit_form" class="bs-example" role="search">
+                <div id="msgPanel2" class="form-group"></div>
                     <section class="panel panel-default form-horizontal">
-                        <header class="panel-heading font-bold" id="workType"> Work Information </header>
-                        <div class="panel-body">
 
+                        <header class="panel-heading font-bold" id="workType"> Work Information </header>
+
+                        <div class="panel-body">
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Work Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="monthly_payable" name="monthly_payable" class="form-control">
+                                    <select id="work_id" class="select2" name="work_id" style="width: 100%">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Sub Work Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="sub_work_name" name="sub_work_name" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -132,11 +140,13 @@
 
 
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <!--<button type="button" class="btn btn-info" data-loading-text="Updating...">Save changes</button>-->
             </div>
+            </form>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
@@ -145,54 +155,44 @@
 
 
 
-    <div class="modal fade" id="work-form1">
+
+
+
+    <div class="modal fade" id="work-form">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Idrawfast 02/2013</h4>
+                    <h4 class="modal-title">Add Work</h4>
                 </div>
-                <div class="modal-body">
-                    <p>This is a table in a modal, click the trash icon to remove the item</p>
-                    <section class="panel panel-default m-l-n-md m-r-n-md m-b-none">
-                        <header class="panel-heading"> <span class="label bg-danger pull-right">4 left</span> Tasks </header>
-                        <table class="table table-striped m-b-none text-sm">
-                            <thead>
-                            <tr>
-                                <th>Progress</th>
-                                <th>Item</th>
-                                <th width="20"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr id="item-1">
-                                <td>
-                                    <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
-                                        <div class="progress-bar progress-bar-success" data-toggle="tooltip" data-original-title="80%" style="width: 80%"></div>
+                <form id="work_form" class="bs-example" role="search">
+                    <div class="modal-body">
+                        <div id="msgPanel2" class="form-group"></div>
+                        <section class="panel panel-default form-horizontal">
+
+                            <header class="panel-heading font-bold" id="workType"> Work Information </header>
+
+                            <div class="panel-body">
+
+                                <div class="form-group">
+
+                                    <label class="col-sm-3 control-label">Work Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="work_name" name="work_name" class="form-control">
                                     </div>
-                                </td>
-                                <td>App prototype design</td>
-                                <td class="text-right">
-                                    <a href="#item-1" data-dismiss="alert"><i class="fa fa-trash-o"></i></a>
-                                </td>
-                            </tr>
-                            <tr id="item-2">
-                                <td>
-                                    <div class="progress progress-xs m-t-xs m-b-none">
-                                        <div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="40%" style="width: 40%"></div>
-                                    </div>
-                                </td>
-                                <td>Design documents</td>
-                                <td class="text-right"> <a href="#item-2" data-dismiss="alert"><i class="fa fa-trash-o"></i></a> </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </section>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-info" data-loading-text="Updating...">Save changes</button>
-                </div>
+                                </div>
+                            </div>
+                        </section>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <!--<button type="button" class="btn btn-info" data-loading-text="Updating...">Save changes</button>-->
+                    </div>
+                </form>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div>
@@ -201,12 +201,19 @@
 
 
     <script>
+        $(document).ready(function(){
+            var userList	= "";
+            $('#work_id').select2();
+            // $("#joining_date").datepicker();
+            loadWorkList();
+        });
+
         function addNewWork(){
             $('#work-form').modal('show');
         }
 
         function addNewSubWork(){
-            $('#work-form').modal('show');
+            $('#sub-work-form').modal('show');
         }
 
         function editSubWork(workType){
@@ -217,4 +224,124 @@
             }
             $('#work-form').modal('show');
         }
+
+        function loadWorkList(){
+
+            $.post("controller/infos.php", {actionType: "getAllMainWork"}, function(data, status){
+                var result = JSON.parse(data);
+                var html='';
+                var leftWorkList='';
+                $.each(result, function(i,data){
+                    leftWorkList +="<li class='b-b b-light'><a href='#'><i class='fa fa-chevron-right pull-right m-t-xs text-xs icon-muted'></i>"+data.work_name+"</a></li>";
+                    html +="<option value='"+data.work_id+"'>"+data.work_name+"</option>";
+                });
+                $('#workList').html(leftWorkList);
+                $('#work_id').html(html);
+            });
+        }
+
+
+        $("form#work_form").submit(function(event) {
+
+            if($.trim($('#work_name').val()).length==0 ){
+                alert('Please Enter Work Name');
+                return false;
+            } else {
+
+                //$('#btnSubmit').prop('disabled',true);
+                event.preventDefault();
+                var formData = new FormData($(this)[0]);
+                formData.append("action","main_work");
+                $.ajax({
+                    url: "controller/config_controller.php",
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(data) {
+                        //$('#btnSubmit').prop('disabled',false);
+                        var result = JSON.parse(data);
+
+                        if (result.success) {
+                            document.getElementById("work_form").reset();
+                            var ssMass = '<div class="alert alert-success">' +
+                                '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
+                                '<i class="fa fa-ok-sign"></i>'+
+                                'Added successfully.</div>';
+                            $('#msgPanel2').html(ssMass);
+
+                            var identity = setInterval(scene, 100);
+                            function scene() {
+                                $('#msgPanel2').html('');
+                                clearInterval(identity);
+                            }
+
+                            // $("#work-form").modal('hide');
+                            // alert("New Member Created Successfully.");
+                        }
+                        else if (result.error) {
+                            //clearForm();
+                            alert("Error !!.");
+                        }
+                    }
+                });
+                return false;
+            }
+
+        });
+
+
+
+
+        $("form#sub_work_form").submit(function(event) {
+
+            if($.trim($('#sub_work_name').val()).length==0 ){
+                alert('Please Enter Work Name');
+                return false;
+            } else {
+
+                //$('#btnSubmit').prop('disabled',true);
+                event.preventDefault();
+                var formData = new FormData($(this)[0]);
+                formData.append("action","sub_work");
+                $.ajax({
+                    url: "controller/config_controller.php",
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(data) {
+                        //$('#btnSubmit').prop('disabled',false);
+                        var result = JSON.parse(data);
+
+                        if (result.success) {
+                            document.getElementById("sub_work_form").reset();
+                            var ssMass = '<div class="alert alert-success">' +
+                                '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
+                                '<i class="fa fa-ok-sign"></i>'+
+                                'Added successfully.</div>';
+                            $('#msgPanel3').html(ssMass);
+/*
+                            var identity = setInterval(scene, 100);
+                            function scene() {
+                                $('#msgPanel3').html('');
+                                clearInterval(identity);
+                            }
+*/
+
+                        }
+                        else if (result.error) {
+                            //clearForm();
+                            alert("Error !!.");
+                        }
+                    }
+                });
+                return false;
+            }
+
+        });
     </script>
