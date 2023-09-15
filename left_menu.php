@@ -19,7 +19,7 @@
 				<nav class="nav-primary hidden-xs"> 
 					<ul class="nav">
                         <li >
-                            <a href="#layout" >
+                            <a href="#layout">
                                 <i class="fa fa-columns icon"> <b class="bg-danger"></b> </i>
                                 <span class="pull-right">
 									<i class="fa fa-angle-down text"></i>
@@ -29,6 +29,7 @@
                             </a>
                             <ul class="nav lt">
                                 <li > <a href="#" onclick='openpage("view/config/work_config.php");' > <i class="fa fa-angle-right"></i> <span>Work Config</span> </a> </li>
+                                <li > <a href="#" onclick='openpage("view/config/project_config.php");' > <i class="fa fa-angle-right"></i> <span>Project</span> </a> </li>
                             </ul>
                         </li>
 						<li> 

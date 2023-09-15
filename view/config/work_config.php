@@ -51,31 +51,8 @@
                                     <th width="20"></th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    <td><input type="checkbox" name="post[]" value="2"></td>
-                                    <td>Idrawfast</td>
-                                    <td><a href="javascript:editSubWork();"><i class="fa fa-pencil"></i></a></td>
-                                    <td><a href="javascript:editSubWork();"><i class="fa fa-trash-o"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="post[]" value="3"></td>
-                                    <td>Formasa</td>
-                                    <td><a href="javascript:editSubWork();"><i class="fa fa-pencil"></i></a></td>
-                                    <td><a href="javascript:editSubWork();"><i class="fa fa-trash-o"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="post[]" value="4"></td>
-                                    <td>Avatar system</td>
-                                    <td><a href="javascript:editSubWork();"><i class="fa fa-pencil"></i></a></td>
-                                    <td><a href="javascript:editSubWork();"><i class="fa fa-trash-o"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="post[]" value="4"></td>
-                                    <td>Throwdown</td>
-                                    <td><a href="javascript:editSubWork();"><i class="fa fa-pencil"></i></a></td>
-                                    <td><a href="javascript:editSubWork();"><i class="fa fa-trash-o"></i></a></td>
-                                </tr>
+                                <tbody id="sub_work_list">
+
                                 </tbody>
                             </table>
                         </div>
@@ -113,9 +90,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">Add Work</h4>
             </div>
-            <form id="sub_work_name" class="bs-example" role="search">
+            <form id="sub_work_form" class="bs-example" role="search">
             <div class="modal-body">
-                <div id="msgPanel2" class="form-group"></div>
+                <div id="msgPanel3" class="form-group"></div>
                     <section class="panel panel-default form-horizontal">
 
                         <header class="panel-heading font-bold" id="workType"> Work Information </header>
@@ -232,13 +209,37 @@
                 var html='';
                 var leftWorkList='';
                 $.each(result, function(i,data){
-                    leftWorkList +="<li class='b-b b-light'><a href='#'><i class='fa fa-chevron-right pull-right m-t-xs text-xs icon-muted'></i>"+data.work_name+"</a></li>";
+                    leftWorkList +="<li class='b-b b-light'><a href='javascript:loadSubWorkList("+data.work_id+")'><i class='fa fa-chevron-right pull-right m-t-xs text-xs icon-muted'></i>"+data.work_name+"</a></li>";
                     html +="<option value='"+data.work_id+"'>"+data.work_name+"</option>";
                 });
                 $('#workList').html(leftWorkList);
                 $('#work_id').html(html);
             });
         }
+
+
+        function loadSubWorkList(parent_id){
+
+            $.post("controller/infos.php", {actionType: "getSubWorkList",parent_id:parent_id}, function(data, status){
+                var result = JSON.parse(data);
+                var html='';
+                var leftWorkList='';
+                $.each(result, function(i,data){
+
+                    html +='<tr><td><input type="checkbox" name="post[]" value="4"></td>'+
+                        '<td>'+data.work_name+'</td>'+
+                        '<td><a href="javascript:editSubWork('+data.work_id+');"><i class="fa fa-pencil"></i></a></td>'+
+                        '<td><a href="javascript:editSubWork('+data.work_id+');"><i class="fa fa-trash-o"></i></a></td></tr>';
+                });
+                $('#sub_work_list').html(html);
+            });
+        }
+
+
+
+
+
+
 
 
         $("form#work_form").submit(function(event) {

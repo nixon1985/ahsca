@@ -47,13 +47,9 @@ switch ($action){
             $stmt->bindParam(':parent_id', $parent_id);
             $stmt->bindParam(':added_by', $added_by,PDO::PARAM_NULL);
 
-            $work_name 	= trim($_POST['work_name']);
+            $work_name 	= trim($_POST['sub_work_name']);
             $parent_id 	= trim($_POST['work_id']);
             $added_by 	= $userID;
-
-            //$monthly_payable 	  = (!empty($_POST['monthly_payable'])) ? trim($_POST['monthly_payable']):0;
-            //$opening_balance 	  = (!empty($_POST['opening_balance'])) ? trim($_POST['opening_balance']):0;
-            //$created_by 	      = ;
 
             $stmt->execute();
             $conn->commit();

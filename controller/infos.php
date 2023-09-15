@@ -75,6 +75,13 @@ switch ($actionType){
         $opInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
         break;
 
+    case 'getSubWorkList':
+        $parent_id = $_POST['parent_id'];
+        $sql = "SELECT w.work_id, w.work_name FROM work_info w WHERE w.parent_id =$parent_id ";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $opInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        break;
     default:
         $sql = "SELECT * FROM member_info";
         $stmt = $conn->prepare($sql);
